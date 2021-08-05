@@ -1,0 +1,654 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Lee's_Project.2</title>
+  <style>
+    
+    html, body { box-sizing: border-box; padding: 0; margin: 0; text-align: center;  }
+    *, *:before, *:after { box-sizing: inherit; }
+    .clearfix:after { content: ''; display: block; clear: both; float: none; }
+    .title { margin-bottom: 0; text-align: center; font-size: 30px; color: #333; }
+    .link, .link:visited { display: inline-block; margin: 20px 0; color: #555; text-decoration: none; font-weight: bold; }
+    .link:hover, .link:focus { color: #9fd6c2; }
+    /* container - body */
+    #container { width: 1000px; margin: auto; }
+    .slide_wrap { position: relative; width: 700px; margin: auto; padding-bottom: 30px; }
+    .slide_box { width: 100%; margin: auto; overflow-x: hidden; }
+    .slide_content { display: table; float: left; width: 700px; height: 700px; }
+    .slide_content > p { display: table-cell; vertical-align: middle; text-align: center; font-size: 100px; font-weight: bold; color: #555; }
+    .slide_content.slide01 { background: #ddbdff; }
+    .slide_content.slide02 { background: #9fd6c2; }
+    .slide_content.slide03 { background: #abe2f7; }
+    .slide_content.slide04 { background: #f08c78; }
+    .slide_content.slide05 { background: #fbdb65; }
+    .slide_btn_box > button { position: absolute; top: 50%; margin-top: -45px; width: 60px; height: 60px; font-size: 16px; color: #999; background: none; border: 1px solid #ddd; cursor: pointer; }
+    .slide_btn_box > .slide_btn_prev { left: -100px; }
+    .slide_btn_box > .slide_btn_next { right: -100px; }
+    .slide_pagination { position: absolute; left: 50%; bottom: 0; list-style: none; margin: 0; padding: 0; transform: translateX(-50%); }
+    .slide_pagination .dot { display: inline-block; width: 15px; height: 15px; margin: 0 5px; overflow: hidden; background: #ddd; border-radius: 50%; transition: 0.3s; }
+    .slide_pagination .dot.dot_active { background: #333; }
+    .slide_pagination .dot a { display: block; width: 100%; height: 100%; }
+
+
+    #main_f{
+      width: 980px;
+      margin: 0 auto;
+      padding-top: 16%;
+    }
+
+    #main_f main{
+      width: 980px;
+      height: 450px;
+      float: left;
+      background-color: #ffffff;
+    }
+
+   /*  #mainx{
+      font-size: 54px;
+      padding-top: 25%;
+      font-weight: bold;
+      
+    }*/
+      @keyframes cursor{
+      50%{ border-color: transparent; }
+    }
+
+    .text{
+    /*font-family: "HY헤드라인M";*/
+      display: table-cell;
+      vertical-align: middle;
+      font-size: 80px;
+      height: 32px;
+      border-right: .05em solid black;
+      animation: cursor 0.5s ease infinite;
+      text-align: center;
+
+    }
+
+    .clear{
+      clear:left;
+    }
+
+
+    #main_box{
+      width: 700px;
+      margin: 0 auto;
+    }
+
+    
+    #main_box main{
+      width:700px;
+      height: 600px;
+      float: left;
+      background-color: #ddbdff;
+       font-family: "HY헤드라인M";
+
+    }
+
+
+
+    #main_boxx{
+      width: 700px;
+      margin: 0 auto;
+    }
+
+    
+    #main_boxx main{
+      width:700px;
+      height: 600px;
+      float: left;
+      background-color: #f08c78;
+      font-family: "HY헤드라인M";
+    }
+
+      #main_boxxx{
+      width: 700px;
+      margin: 0 auto;
+    }
+
+    
+    #main_boxxx main{
+      width:700px;
+      height: 600px;
+      background-color: #9fd6c2;
+       font-family: "HY헤드라인M";
+    }
+
+       #main_boxxxx{
+      width: 700px;
+      margin: 0 auto;
+    }
+
+    
+    #main_boxxxx main{
+      width:700px;
+      height: 600px;
+      background-color: #abe2f7;
+      font-family: "HY헤드라인M"
+    }
+
+       #main_boxxxxx{
+      width: 700px;
+      margin: 0 auto;
+    }
+
+    
+    #main_boxxxxx main{
+      width:700px;
+      height: 600px;
+      background-color: #fbdb65;
+       font-family: "HY헤드라인M"
+    }
+    #imgg{
+      padding-top: 10%; 
+      padding-left: 20%;
+    }
+
+      #main1{
+      font-size: 54px;
+      padding-top: 25%;
+      font-weight: bold;
+      font-family: "HY헤드라인M";
+
+    }
+
+    .main2 li{
+      display: inline;
+        font-family: "HY헤드라인M";
+
+
+    }
+
+    .clear{
+      clear:left;
+    }
+
+
+    #main4{
+      font-size: 50px;
+      font-weight: bolder;
+    }
+
+       .main44 ul{
+      font-size: 18px;
+      line-height: 150%;
+      font-family: "HY헤드라인M";
+      padding-top: 20px;
+      line-height: 200%;
+     
+
+
+
+    }
+
+    .main44 li{
+      display: inline;
+     
+
+    }
+
+    .main44{
+      text-align: left;
+      float: left;
+      margin:5px;
+      padding-left: 50px;
+
+    }
+
+    .main44 img{
+      display: block;
+    } 
+
+    @keyframes cursor{
+      50%{ border-color: transparent; }
+    }
+
+    .text{
+    /*font-family: "HY헤드라인M";*/
+         text-align: center;
+      display: table-cell;
+      vertical-align: middle;
+      font-size: 45px;
+      height: 32px;
+      border-right: .05em solid black;
+      animation: cursor 0.5s ease infinite;
+
+
+    }
+
+    #mainx{
+      font-size: 54px;
+      padding-top: 30%;
+      font-weight: bold;
+       text-align: center;
+      
+    }
+
+    #colorr{
+      color:#fff44f;
+    }
+
+    #colorrr{
+      color:#0067a3;
+    }
+
+    .main3{
+      border:solid 3px #000000;
+      float: left;
+      margin: 5px;
+
+    }
+
+    .main3 img{
+      display: block;
+    }
+
+    
+    #loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#loader>div {
+    width: 100%;
+    height: 12.5%;
+    background: #fff44f;
+    transition: transform 500ms;
+}
+
+#loader>div:nth-child(1) {
+    transition-delay: 100ms;
+}
+
+#loader>div:nth-child(2) {
+    transition-delay: 200ms;
+}
+
+#loader>div:nth-child(3) {
+    transition-delay: 300ms;
+}
+
+#loader>div:nth-child(4) {
+    transition-delay: 400ms;
+}
+
+#loader>div:nth-child(5) {
+    transition-delay: 500ms;
+}
+
+#loader>div:nth-child(6) {
+    transition-delay: 600ms;
+}
+
+#loader>div:nth-child(7) {
+    transition-delay: 700ms;
+}
+
+#loader>div:nth-child(8) {
+    transition-delay: 800ms;
+}
+
+body:not(.hidden).reveal #loader>div {
+    transform: translateX(-100%);
+}
+
+#title{
+  font-size: 55px;
+  font-weight: bold;
+}
+
+#foo{
+  font-size: 30px;
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+#col_yellow{
+  color:#0000ff;
+}
+
+#col_red{
+  color:#ff0000;
+}
+
+#col_blue{
+  color:#0055ff;
+}
+
+#col_yel_ong{
+  color:#ffd500;
+}
+
+#col_grn{
+  color:#008000;
+}
+
+  </style>
+</head>
+<body>
+
+
+  <h1 class="title"><span id = "col_blue">F</span><span id = "col_red">r</span><span id = col_yel_ong>o</span><span id = "col_blue">n</span><span id = "col_grn">t</span>-end 면접 질문</h1>
+  <a href="https://lee0877.github.io/Hello_/project1.html" class="link" target="_blank">Back to main screen🖱️</a>
+      
+
+<div class ="clear"></div>
+  
+  <div id="container">
+    <div class="slide_wrap">
+      <div class="slide_box">
+        <div class="slide_list clearfix">
+          <div class="slide_content slide01">
+        <section id = "main_box">
+
+  <main>
+
+    <div class = "main2">
+    <br>
+    <br>
+    <h1>FRONT-END 면접 질문</h1>
+  <ul>
+    <li>면접엔 무슨 질문이 나올까요?</li>
+    <div class ="clear"></div>
+    <li>제가 몇몇에 포스팅을 찾아본 결과</li>
+    <div class ="clear"></div>
+    <li>FRONT-END개발자 면접에서는 기본적인 언어들의  </li>
+    <div class ="clear"></div>
+    문법과 기업에 서비스 및 기술에 대한 질문이 많았습니다.</li>
+    
+  </ul>
+</div>
+
+  <div class = "main2">
+    <img src = "img/find.png" width="350" height="300">
+  </div>
+
+  
+
+<div class ="clear"></div>
+
+  <div class ="main2">
+    <br>
+    <ul>
+      <li>SO?</li>
+      <div class ="clear"></div>
+      <li>1. 지원하고자 하는 기업의 정보를 알아둬야 합니다.</li>
+      <div class ="clear"></div>
+      <li>2. 언어 및 기술에 관련된 기본 정의 및 설명을 할 수 있어야 합니다.</li>
+      <div class ="clear"></div>
+      <li>3. 포트폴리오에 사용할 프로젝트는 미리 준비 합니다.</li>
+      <div class = "clear"></div>
+
+    </ul>
+
+  </div>
+
+</section>
+
+          </div>
+
+
+          <div class="slide_content slide02">
+           <section id = "main_boxxx">
+  
+  <main>
+    <br>
+    <br>
+    <h2>✏️지원하고자 하는 기업의 정보를 알아둬야 합니다.</h2>
+    <div class ="main44">
+  
+    <ul>
+      <li>지원하고자 하는 기업의 서비스에 대해 알아둬야 합니다. </li>
+      <div class ="clear"></div>
+      <li>해당 서비스를 직접 이용해보고 장점과 단점을 파악합니다.</li>
+      <div class ="clear"></div>
+      <li>그 외에 기업에 방향과 가치관을 파악하는 것이 좋습니다.</li>
+    </ul>
+  </div>
+
+  <div class = "main2">
+    <img src = "img/pic1.png" width="350" height="250">
+  </div>
+    
+
+  <div class ="clear"></div>
+  <br>
+  <br>
+  
+
+ 
+  </main>
+
+</section>
+
+          </div>
+
+
+          <div class="slide_content slide03">
+            <section id = "main_boxxxx">
+  
+    <main>
+      <br>
+      <br>
+      <h2>✏️언어 및 기술에 관련된 기본 정의 및 설명을<br> 할 수 있어야 합니다.</h2>
+    <br>
+
+    <div class = "main2">
+    <img src = "img/picc.png" width="350" height="250">
+  </div>
+
+    <div class ="main44">
+    
+    
+    <ul>
+      <li>WEB, HTML, CSS, JS 등의 기본 설명이 가능해야 합니다.</li>
+      <div class ="clear"></div>
+
+      <li>ex)<span id ="colred"> Q: CSS중에 inline요소와 block요소의 차이점을 기술하라</span></li>
+
+
+      <div class ="clear"></div>
+
+      <li>A:<span id = "col_yellow"> inline요소는 가로 나열로 요소의 크기만큼만 공간을</span></li>
+
+      <div class = "clear"></div>
+
+      <li><span id = "col_yellow">점유하므로 크기를 지정해도 반영이 되지 않는다.</span></li>
+
+      <div class = "clear"></div>
+
+      <li><span id = "col_red">block요소는 세로 나열이고 무조건 한줄을 점유하고</span></li>
+
+      <div class = "clear"></div>
+
+       <li><span id = "col_red">있으며 다음 태그에는 자동으로 줄바꿈이 적용된다.</span></li>
+
+    </ul>
+  </div>
+</main>
+
+</section>
+          </div>
+          <div class="slide_content slide04">
+  <section id = "main_boxx">
+  
+  <main>
+    <br>
+    <br>
+   <h2>✏️포트폴리오에 사용할 프로젝트는 미리 준비 합니다.</h2>
+    
+    <div class ="main44">
+    
+     <ul>
+      <li>면접 기회가 예고되어 있지 않은 경우를 대비하여  </li>
+      <div class ="clear"></div>
+      <li>미리 면접에서 선보일 포트폴리오를 준비해둡니다.</li>
+      <div class ="clear"></div>
+      <li>평소에 틈틈이 작업을 해두면 개발 실력 향상과 </li>
+      <div class = "clear"></div>
+      <li>완성도 높은 포트폴리오를 만들 수 있습니다.</li>
+    </ul>
+  </div>
+
+  <div class = "main2">
+    <img src = "img/coding.png" width="350" height="250">
+  </div>
+
+  
+  </main>
+
+</section>
+          </div>
+          <div class="slide_content slide05">
+             <section id = "main_boxxxxxx">
+  
+ <main>
+    <br>
+    <div id = "main4">🦾WE CAN DO ANYTHING</div>
+    <br>
+    <div class ="main44">
+    <ul>
+      <li>우리 모두 희망하고자 하는 일들이 다 잘 됐으면 좋겠습니다. </li>
+      <div class ="clear"></div>
+      <li>방문해 주셔서 감사합니다.😊</li>
+      
+      
+      
+
+    </ul>
+  </div>
+
+  <div class = "main2">
+    <img src = "img/helping-each-other.png" width="400" height="400">
+  </div>
+  </main>
+</section>
+            
+          </div>
+        </div>
+        <!-- // .slide_list -->
+      </div>
+      <!-- // .slide_box -->
+      <div class="slide_btn_box">
+        <button type="button" class="slide_btn_prev">Prev</button>
+        <button type="button" class="slide_btn_next">Next</button>
+      </div>
+      <!-- // .slide_btn_box -->
+      <ul class="slide_pagination"></ul>
+      <!-- // .slide_pagination -->
+    </div>
+    <!-- // .slide_wrap -->
+  </div>
+  <!-- // .container -->
+
+  <script>
+    (function () {
+      const slideList = document.querySelector('.slide_list');  // Slide parent dom
+      const slideContents = document.querySelectorAll('.slide_content');  // each slide dom
+      const slideBtnNext = document.querySelector('.slide_btn_next'); // next button
+      const slideBtnPrev = document.querySelector('.slide_btn_prev'); // prev button
+      const pagination = document.querySelector('.slide_pagination');
+      const slideLen = slideContents.length;  // slide length
+      const slideWidth = 700; // slide width
+      const slideSpeed = 300; // slide speed
+      const startNum = 0; // initial slide index (0 ~ 4)
+      
+      slideList.style.width = slideWidth * (slideLen + 2) + "px";
+      
+      // Copy first and last slide
+      let firstChild = slideList.firstElementChild;
+      let lastChild = slideList.lastElementChild;
+      let clonedFirst = firstChild.cloneNode(true);
+      let clonedLast = lastChild.cloneNode(true);
+
+      // Add copied Slides
+      slideList.appendChild(clonedFirst);
+      slideList.insertBefore(clonedLast, slideList.firstElementChild);
+
+      // Add pagination dynamically
+      let pageChild = '';
+      for (var i = 0; i < slideLen; i++) {
+        pageChild += '<li class="dot';
+        pageChild += (i === startNum) ? ' dot_active' : '';
+        pageChild += '" data-index="' + i + '"><a href="#"></a></li>';
+      }
+      pagination.innerHTML = pageChild;
+      const pageDots = document.querySelectorAll('.dot'); // each dot from pagination
+
+      slideList.style.transform = "translate3d(-" + (slideWidth * (startNum + 1)) + "px, 0px, 0px)";
+
+      let curIndex = startNum; // current slide index (except copied slide)
+      let curSlide = slideContents[curIndex]; // current slide dom
+      curSlide.classList.add('slide_active');
+
+      /** Next Button Event */
+      slideBtnNext.addEventListener('click', function() {
+        if (curIndex <= slideLen - 1) {
+          slideList.style.transition = slideSpeed + "ms";
+          slideList.style.transform = "translate3d(-" + (slideWidth * (curIndex + 2)) + "px, 0px, 0px)";
+        }
+        if (curIndex === slideLen - 1) {
+          setTimeout(function() {
+            slideList.style.transition = "0ms";
+            slideList.style.transform = "translate3d(-" + slideWidth + "px, 0px, 0px)";
+          }, slideSpeed);
+          curIndex = -1;
+        }
+        curSlide.classList.remove('slide_active');
+        pageDots[(curIndex === -1) ? slideLen - 1 : curIndex].classList.remove('dot_active');
+        curSlide = slideContents[++curIndex];
+        curSlide.classList.add('slide_active');
+        pageDots[curIndex].classList.add('dot_active');
+      });
+
+      /** Prev Button Event */
+      slideBtnPrev.addEventListener('click', function() {
+        if (curIndex >= 0) {
+          slideList.style.transition = slideSpeed + "ms";
+          slideList.style.transform = "translate3d(-" + (slideWidth * curIndex) + "px, 0px, 0px)";
+        }
+        if (curIndex === 0) {
+          setTimeout(function() {
+            slideList.style.transition = "0ms";
+            slideList.style.transform = "translate3d(-" + (slideWidth * slideLen) + "px, 0px, 0px)";
+          }, slideSpeed);
+          curIndex = slideLen;
+        }
+        curSlide.classList.remove('slide_active');
+        pageDots[(curIndex === slideLen) ? 0 : curIndex].classList.remove('dot_active');
+        curSlide = slideContents[--curIndex];
+        curSlide.classList.add('slide_active');
+        pageDots[curIndex].classList.add('dot_active');
+      });
+
+      /** Pagination Button Event */
+      let curDot;
+      Array.prototype.forEach.call(pageDots, function (dot, i) {
+        dot.addEventListener('click', function (e) {
+          e.preventDefault();
+          curDot = document.querySelector('.dot_active');
+          curDot.classList.remove('dot_active');
+          
+          curDot = this;
+          this.classList.add('dot_active');
+
+          curSlide.classList.remove('slide_active');
+          curIndex = Number(this.getAttribute('data-index'));
+          curSlide = slideContents[curIndex];
+          curSlide.classList.add('slide_active');
+          slideList.style.transition = slideSpeed + "ms";
+          slideList.style.transform = "translate3d(-" + (slideWidth * (curIndex + 1)) + "px, 0px, 0px)";
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
